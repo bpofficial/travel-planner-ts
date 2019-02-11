@@ -5,6 +5,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../Redux/Reducers/';
 
+import Containers from './Containing/';
+
 const store = createStore(rootReducer);
 
 class App extends React.Component <{}> {
@@ -13,7 +15,7 @@ class App extends React.Component <{}> {
         return (
             <div>
                 <Provider store={store} >
-                    hello
+                    <Containers />
                 </Provider>
             </div>
         );

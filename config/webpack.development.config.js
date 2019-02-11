@@ -48,6 +48,7 @@ function buildDevelopementConfig(env, dirname) {
                             plugins: [
                                 //'@babel/plugin-syntax-dynamic-import',
                                 '@babel/plugin-proposal-class-properties',
+                                '@babel/plugin-proposal-optional-chaining',
                                 'react-hot-loader/babel'
                             ]
                         }
