@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 //import PlannerNav from '../../../../functional/misc/bottomNav/';
 
-const mapStateToProps = (state: {componentChange: Array<any>}) => {
+const mapStateToProps = (state: {componentChange: Array<JSX.Element>}) => {
     return {
-        component: state.componentChange[0].littleComponent
+        component: state.componentChange[0]['littleComponent']
     }
 }
 

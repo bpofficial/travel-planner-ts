@@ -1,11 +1,11 @@
 import React from 'react';
-//import GoogleMap from '../../functional/map/';
-//import Planner from '../../functional/Planner/';
+import GoogleMap from '../../Components/Functional/GoogleMap/';
+import Planner from '../../Components/Functional/Planner/';
 
 const initialState = [
     {
-        bigComponent: <div>Hi</div>,//<GoogleMap />,
-        littleComponent: <div>also hi</div>//<Planner />
+        bigComponent: <GoogleMap />,
+        littleComponent: <Planner />
     }
 ]
 

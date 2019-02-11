@@ -16,6 +16,7 @@
           "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
         "module": "esnext",
         "baseUrl":
-          "./src" /* Base directory to resolve non-absolute module names. */
+          "./src" /* Base directory to resolve non-absolute module names. */,
+        "lib": ["es2016", "dom", "dom.iterable"]
     }
 }
