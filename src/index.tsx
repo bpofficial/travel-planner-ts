@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './App';
+import App from './Components/';
 
 let root = document.getElementById('root');
 if (!root) {
@@ -8,5 +8,5 @@ if (!root) {
       root.id = 'root';
       document.body.appendChild(root);
 }
-console.log('index loaded')
+
 ReactDom.render(<App />, root);
