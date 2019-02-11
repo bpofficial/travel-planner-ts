@@ -30,14 +30,3 @@ export default class Budget extends React.Component<{ info: string }> {
         )
     }
 }
-
-/*
-    float: right;
-    height: 48px;
-    margin: auto 4vw auto auto;
-    cursor: not-allowed;
-    float: right;
-    padding: 0 30px;
-    border-radius: 2px;
-    pointer-events: none;
-*/
