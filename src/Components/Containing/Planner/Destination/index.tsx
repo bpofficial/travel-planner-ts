@@ -19,15 +19,16 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
         borderRadius: '0px',
         margin: '0.1vh 0vh',
         lineHeight: '2vh',
-        fontSize: '1.8vh'
+        fontSize: '1.8vh',
+        padding: '0px'
     },
     details: {
         width: '100%',
         padding: '8px 12px 24px 12px'
     },
     summaryWrapper: {
-        width: '55%',
-        margin: 'auto 0px'
+        width: '45%',
+        margin: 'auto 1vw'
     }
 })
 
@@ -47,9 +48,9 @@ class DestinationContainer extends React.Component<Props> {
     public render(): JSX.Element {
         const { classes } = this.props;
         return (
-            <Grid item lg={12} >
+            <Grid item lg={12} style={{ width: '100%' }}>
                 <ExpansionPanel className={classes.root} square>
-                    <ExpansionPanelSummary className={classes.root} expandIcon={<ExpandMoreIcon />}>
+                    <ExpansionPanelSummary className={classes.root} expandIcon={<ExpandMoreIcon style={{ padding: '0px' }} />}>
                         <div className={classes.summaryWrapper}>
                             {this.props.icon} {this.props.name}
                         </div> 

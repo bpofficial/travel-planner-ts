@@ -10,7 +10,7 @@ const StyledButton = withStyles({
         width: '100%',
         padding: '0 30px',
         float: 'right',
-        margin: 'auto 2vw auto auto'
+        margin: 'auto 3.5vw auto auto'
     }
 })(Button);
 

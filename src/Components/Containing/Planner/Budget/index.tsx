@@ -7,11 +7,11 @@ const StyledButton = withStyles({
     root: {
         borderRadius: 2,
         height: 48,
-        maxWidth: '5vw',
-        width: '100%',
+        //maxWidth: '5vw',
+        //width: '100%',
         padding: '0 30px',
         float: 'right',
-        margin: 'auto',
+        margin: 'auto 4vw auto auto',
         pointerEvents: 'none',
         cursor: 'not-allowed'
     },
@@ -30,3 +30,14 @@ export default class Budget extends React.Component<{ info: string }> {
         )
     }
 }
+
+/*
+    float: right;
+    height: 48px;
+    margin: auto 4vw auto auto;
+    cursor: not-allowed;
+    float: right;
+    padding: 0 30px;
+    border-radius: 2px;
+    pointer-events: none;
+*/

@@ -30,7 +30,8 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
         borderRadius: '0px',
         margin: '0.2vh 0vh',
         lineHeight: '3vh',
-        fontSize: '2vh'
+        fontSize: '2vh',
+        padding: '0px'
     }
 });
 
@@ -87,7 +88,7 @@ class Planner extends React.Component<Props, State> {
                             square
                         >
                             <ExpansionPanelSummary className={classes.root} expandIcon={<ExpandMoreIcon />}>
-                                <div style={{ width: '9vw', marginTop: '0.5vh' }}>
+                                <div style={{ width: '9vw', marginTop: '0.5vh', paddingLeft: '2vw' }}>
                                     <Typography align="left" component="h2" variant="display1">
                                         {location.name}
                                     </Typography>
