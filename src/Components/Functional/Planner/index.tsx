@@ -13,7 +13,7 @@ import AccommodationIcon from '@material-ui/icons/Hotel';
 import TravelIcon from '@material-ui/icons/Flight';
 
 import Budget from '../../Containing/Planner/Budget/';
-import Destination from '../../Containing/Planner/Destination/';
+import TripClassContainer from '../../Containing/Planner/Trip/';
 
 const mapStateToProps = ( state: { tripData: Array<any> } ) => {
     return {
@@ -97,9 +97,9 @@ class Planner extends React.Component<Props, State> {
                             </ExpansionPanelSummary>
                             <ExpansionPanelDetails>
                                 <Grid container spacing={8} >
-                                    <Destination data={location.stay.attractions} icon={<AttractionsIcon />} name="Attractions" />
-                                    <Destination data={location.stay.accommodation} icon={<AccommodationIcon />} name="Accommodation" />
-                                    <Destination data={location.stay.travel} icon={<TravelIcon />} name="Travel" />
+                                    <TripClassContainer data={location.stay.attractions} icon={<AttractionsIcon />} name="Attractions" />
+                                    <TripClassContainer data={location.stay.accommodation} icon={<AccommodationIcon />} name="Accommodation" />
+                                    <TripClassContainer data={location.stay.travel} icon={<TravelIcon />} name="Travel" />
                                 </Grid>
                             </ExpansionPanelDetails>
                         </ExpansionPanel>

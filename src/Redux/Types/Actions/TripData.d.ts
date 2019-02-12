@@ -3,7 +3,7 @@ import Destination from '../Destination'
 type TripAction = {
     type: string,
     data: {
-        id?: number,
+        id: number | '',
         notes: string,
         location: Destination
     }

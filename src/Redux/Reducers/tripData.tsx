@@ -6,6 +6,7 @@ const initialState = [
         name: 'Tokyo',
         price: 1000,
         currency: 'AUD',
+        details: '',
         date: {
             from: '',
             to: '',
@@ -81,8 +82,7 @@ const initialState = [
                                 address: 'narita airport international terminal'
                             }
                         }
-                    },
-                    details: {}
+                    }
                 }
             ],
         }

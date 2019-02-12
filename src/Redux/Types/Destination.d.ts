@@ -1,19 +1,16 @@
+import Geographic from './Geographic';
+
 type Destination = {
     name: string,
     price: number,
     currency: string,
-    details?: string,
+    details: string,
     date: {
-        from?: string,
-        to?: string,
+        from?: Date | string,
+        to?: Date | string,
         timezone?: string
     },
-    geo: {
-        lat?: number,
-        lng?: number,
-        place_id?: string,
-        address?: string
-    },
+    geo: Geographic,
     stay: {
         attractions?: {
             [key:number]: {
@@ -21,16 +18,12 @@ type Destination = {
                 price: number,
                 currency: string,
                 date?: {
-                    from?: string,
-                    to?: string,
+                    from?: Date | string,
+                    to?: Date | string,
                     timezone?: string
                 },
-                geo?: {
-                    lat?: number,
-                    lng?: number,
-                    place_id?: string,
-                    address?: string
-                }
+                geo?: Geographic,
+                details?: string
             }
         },
         accommodation?: {
@@ -39,16 +32,12 @@ type Destination = {
                 price: number,
                 currency: string,
                 date?: {
-                    from?: string,
-                    to?: string,
+                    from?: Date | string,
+                    to?: Date | string,
                     timezone?: string
                 },
-                geo?: {
-                    lat?: number,
-                    lng?: number,
-                    place_id?: string,
-                    address?: string
-                }
+                geo?: Geographic,
+                details?: string
             }
         },
         travel?: {
@@ -57,29 +46,19 @@ type Destination = {
                 price: number,
                 currency: string,
                 date?: {
-                    from?: string,
-                    to?: string,
+                    from?: Date | string,
+                    to?: Date | string,
                     timezone?: string
                 },
                 movement?: {
                     from?: {
-                        geo?: {
-                            lat: number,
-                            lng: number,
-                            place_id?: string,
-                            address?: string
-                        }
+                        geo?: Geographic
                     },
                     to?: {
-                        geo?: {
-                            lat: number,
-                            lng: number,
-                            place_id?: string,
-                            address?: string
-                        }
+                        geo?: Geographic
                     }
                 },
-                details: {}
+                details?: string
             }
         }
     }
