@@ -18,8 +18,8 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
         position: 'relative',
         padding: '2vh',
         margin: 'auto',
-        minWidth: '30vw',
-        maxWidth: '30vw',
+        minWidth: '32vw',
+        maxWidth: '32vw',
         width: '100%',
         minHeight: '80vh',
         maxHeight: '80vh',
@@ -33,10 +33,10 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
         //padding: '2vh',
         minWidth: '55vw',
         maxWidth: '55vw',
-        minHeight: '84vh',
-        maxHeight: '84vh',
-        width: '100%',
-        height: '100%',
+        minHeight: '80vh',
+        maxHeight: '80vh',
+        //width: '100%',
+        //height: '100%',
         float: 'right',
         borderRadius: '0px'
     },
@@ -63,13 +63,13 @@ class Itinerary extends React.Component<Props> {
     public render(): JSX.Element {
         const { classes } = this.props;
         return (
-            <div className={classes['root']}>
+            <div className={classes.root}>
                 <Typography component="h2" variant="display3" gutterBottom>
-                    <div className={classes['titleOutline']}>Travel</div>&nbsp;Planner
+                    <div className={classes.titleOutline}>Travel</div>&nbsp;Planner
                 </Typography>
                 <Grid>
-                    <LittleContainer className={classes['paperRight']} />
-                    <BigContainer className={classes['paperLeft']} />
+                    <LittleContainer className={classes.paperRight} />
+                    <BigContainer className={classes.paperLeft} />
                 </Grid>
             </div>
         )

@@ -56,7 +56,7 @@ function buildDevelopementConfig(env, dirname) {
                 },
                 {
                     test: /\.css$/,
-                    loader: 'style!css'
+                    loaders: ['style-loader', 'css-loader']
                 }
             ]
         },

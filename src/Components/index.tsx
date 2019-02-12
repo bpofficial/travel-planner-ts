@@ -6,18 +6,23 @@ import { Provider } from 'react-redux';
 import rootReducer from '../Redux/Reducers/';
 
 import Containers from './Containing/';
+import { MuiThemeProvider } from '@material-ui/core';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import theme from '../Themes/';
 
 const store = createStore(rootReducer);
+
 
 class App extends React.Component <{}> {
 
     public render(): JSX.Element {
         return (
-            <div>
+            <MuiThemeProvider theme={theme} >
                 <Provider store={store} >
                     <Containers />
                 </Provider>
-            </div>
+            </MuiThemeProvider>
         );
     }
 }

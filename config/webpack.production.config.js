@@ -50,6 +50,10 @@ function buildProductionConfig(env, dirname) {
                             ]
                         }
                     }
+                },
+                {
+                    test: /\.css/,
+                    loaders: ['style-loader', 'css-loader']
                 }
             ]
         },

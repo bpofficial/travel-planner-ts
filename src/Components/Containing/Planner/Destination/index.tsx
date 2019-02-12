@@ -9,6 +9,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import AddButton from '../../../Functional/Planner/Buttons/Add/';
 import EditButton from '../../../Functional/Planner/Buttons/Edit/';
+import { Typography } from '@material-ui/core';
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     root: {
@@ -52,7 +53,7 @@ class DestinationContainer extends React.Component<Props> {
                 <ExpansionPanel className={classes.root} square>
                     <ExpansionPanelSummary className={classes.root} expandIcon={<ExpandMoreIcon style={{ padding: '0px' }} />}>
                         <div className={classes.summaryWrapper}>
-                            {this.props.icon} {this.props.name}
+                            {this.props.icon} <Typography style={{ width: '100%' }} variant="subtitle1" inline> {this.props.name} </Typography>
                         </div> 
                         <AddButton />
                     </ExpansionPanelSummary>

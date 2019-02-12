@@ -13,8 +13,8 @@ class MapContainer extends React.Component<{ google: any[] }> {
             map: {
                 minWidth: '55vw',
                 maxWidth: '55vw',
-                minHeight: '84vh', 
-                maxHeight: '84vh',
+                minHeight: '80vh', 
+                maxHeight: '80vh',
                 position: 'relative'
             },
             container: {

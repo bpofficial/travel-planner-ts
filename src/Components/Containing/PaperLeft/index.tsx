@@ -13,7 +13,7 @@ class index extends React.Component<{className: string, component: JSX.ElementCl
     render() {
         return (
             <Paper className={this.props.className}>
-                <Grid container spacing={0} >
+                <Grid container spacing={0} style={{ height: '80vh' }}>
                     {this.props.component}
                 </Grid>
             </Paper>
