@@ -1,6 +1,6 @@
 import React from 'react';
-import GoogleMap from '../../Components/Functional/GoogleMap/';
-import Planner from '../../Components/Functional/Planner/';
+import GoogleMap from '../../modules/Map/Components/Container';
+import Planner from '../../modules/Planner';
 
 const initialState = [
     {

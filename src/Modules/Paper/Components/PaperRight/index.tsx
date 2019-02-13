@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
-//import PlannerNav from '../../../../functional/misc/bottomNav/';
+import Nav from 'Modules/Planner/Components/Nav/';
 
 const mapStateToProps = (state: {componentChange: Array<JSX.Element>}) => {
     return {
@@ -15,7 +15,7 @@ class paperRight extends React.Component<{className: string, component: JSX.Elem
         return (
             <Paper className={this.props.className} >
                 {this.props.component}
-                {''/*<PlannerNav />*/}
+                <Nav />
             </Paper>
         )
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 
 import Grid from '@material-ui/core/Grid';
 import { withStyles, createStyles } from '@material-ui/core/styles';
@@ -8,12 +8,10 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import AddButton from '../../../Functional/Planner/Buttons/Add/';
 import { Typography } from '@material-ui/core';
 
 import TripClassChild from './ClassChild/';
 import { Props as ClassChildProps } from './ClassChild/';
-import NewTripClassChild from '../../../Functional/Planner/New/TripClassChild/';
 //import { Props as ClassChildProps } from './ClassChild/';
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
@@ -49,6 +47,7 @@ interface Props {
         summaryWrapper: string
     }
 }
+
 class TripClassContainer extends React.Component<Props> {
     
     public shouldComponentUpdate(nextProps, nextState): boolean {
@@ -64,7 +63,6 @@ class TripClassContainer extends React.Component<Props> {
                         <div className={classes.summaryWrapper}>
                             {this.props.icon} <Typography style={{ width: '100%' }} variant="subtitle1" inline> {this.props.name} </Typography>
                         </div> 
-                        <AddButton name={this.props.name} />
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.details} >
                         <Grid container style={{width:'100%'}}>

@@ -3,13 +3,13 @@ import { hot } from 'react-hot-loader';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from '../Redux/Reducers/';
+import rootReducer from '../Redux/Reducers';
 
-import Containers from './Containing/';
+import Containers from './Planner/Components';
 import { MuiThemeProvider } from '@material-ui/core';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import theme from '../Themes/';
+import theme from '../Themes';
 
 const store = createStore(rootReducer);
 

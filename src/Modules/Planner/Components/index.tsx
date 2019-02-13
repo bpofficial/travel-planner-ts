@@ -2,8 +2,8 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { withStyles, createStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import LittleContainer from './PaperLeft/';
-import BigContainer from './PaperRight/';
+import PaperLeft from 'Modules/Paper/Components/PaperLeft/';
+import PaperRight from 'Modules/Paper/Components/PaperRight/';
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     root: {
@@ -67,8 +67,8 @@ class Itinerary extends React.Component<Props> {
                     <div className={classes.titleOutline}>Travel</div>&nbsp;Planner
                 </Typography>
                 <Grid>
-                    <LittleContainer className={classes.paperRight} />
-                    <BigContainer className={classes.paperLeft} />
+                    <PaperLeft className={classes.paperRight} />
+                    <PaperRight className={classes.paperLeft} />
                 </Grid>
             </div>
         )

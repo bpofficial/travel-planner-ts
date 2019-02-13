@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import EditButton from '../../../../Functional/Planner/Buttons/Edit/';
+import EditButton from 'Modules/Planner/Components/Buttons/Edit/';
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     root: {
@@ -41,7 +41,6 @@ export type Props = {
 
 
 export class Container extends React.Component<Props> {
-
     render() {
         const { classes, info } = this.props;
         return (
