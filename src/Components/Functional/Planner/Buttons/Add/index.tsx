@@ -14,7 +14,9 @@ const StyledButton = withStyles({
     }
 })(Button);
 
-export default class AddButton extends React.Component<{}> {
+
+class AddButton extends React.Component<{ name: string }> {
+
     render() {
         return (
             <StyledButton variant="contained" color="primary">
@@ -23,3 +25,5 @@ export default class AddButton extends React.Component<{}> {
         )
     }
 }
+
+export default AddButton;

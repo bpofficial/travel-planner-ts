@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Grid from '@material-ui/core/Grid';
 import { withStyles, createStyles } from '@material-ui/core/styles';
@@ -11,8 +12,9 @@ import AddButton from '../../../Functional/Planner/Buttons/Add/';
 import { Typography } from '@material-ui/core';
 
 import TripClassChild from './ClassChild/';
-import NewTripClassChild from './ClassChild/New';
 import { Props as ClassChildProps } from './ClassChild/';
+import NewTripClassChild from '../../../Functional/Planner/New/TripClassChild/';
+//import { Props as ClassChildProps } from './ClassChild/';
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     root: {
@@ -36,19 +38,19 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     }
 })
 
-type Props = {
+interface Props {
     icon: any,
     name: string,
-    data: Array<any>,
+    data: any,
+    item: string,
     classes: {
         root: string,
         details: string,
         summaryWrapper: string
     }
 }
-
 class TripClassContainer extends React.Component<Props> {
-
+    
     public shouldComponentUpdate(nextProps, nextState): boolean {
         return ( this.props == nextProps || this.state == nextState) ? true : false; 
     }
@@ -62,10 +64,16 @@ class TripClassContainer extends React.Component<Props> {
                         <div className={classes.summaryWrapper}>
                             {this.props.icon} <Typography style={{ width: '100%' }} variant="subtitle1" inline> {this.props.name} </Typography>
                         </div> 
-                        <AddButton />
+                        <AddButton name={this.props.name} />
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails className={classes.details} >
-                        <TripClassChild key={1} info={{name: 'yeetus', details: 'deletus'}} />
+                        <Grid container style={{width:'100%'}}>
+                            {this.props.data.map((details: ClassChildProps['info'], y: number) => {
+                                return (
+                                    <TripClassChild key={y} info={details} />
+                                )
+                            })}
+                        </Grid>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             </Grid>
@@ -74,11 +82,3 @@ class TripClassContainer extends React.Component<Props> {
 }
 
 export default withStyles(styles)(TripClassContainer);
-
-/**
- {this.props.data.map((details: ClassChildProps['info'], y: number) => {
-                            return (
-                                <TripClassChild key={y} info={details} />
-                            )
-                        })}
- */

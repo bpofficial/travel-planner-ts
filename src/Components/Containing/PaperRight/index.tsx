@@ -9,7 +9,7 @@ const mapStateToProps = (state: {componentChange: Array<JSX.Element>}) => {
     }
 }
 
-class index extends React.Component<{className: string, component: JSX.ElementClass}> {
+class paperRight extends React.Component<{className: string, component: JSX.ElementClass}> {
 
     render() {
         return (
@@ -21,4 +21,4 @@ class index extends React.Component<{className: string, component: JSX.ElementCl
     }
 }
 
-export default connect(mapStateToProps)(index);
+export default connect(mapStateToProps)(paperRight);

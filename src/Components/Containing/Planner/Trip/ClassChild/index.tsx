@@ -38,14 +38,15 @@ export type Props = {
     }
 }
 
-class ClassChild extends React.Component<Props> {
+
+
+export class Container extends React.Component<Props> {
+
     render() {
-
         const { classes, info } = this.props;
-
         return (
             <ExpansionPanel key={this.props.key} className={classes.root} square>
-                <ExpansionPanelSummary className={classes.root} expandIcon={<ExpandMoreIcon />}>
+                <ExpansionPanelSummary className={classes.root} expandIcon={<ExpandMoreIcon/>} >
                     <div className={classes.summaryWrapper} >
                         {info.name}
                     </div> 
@@ -59,4 +60,4 @@ class ClassChild extends React.Component<Props> {
     }
 }
 
-export default withStyles(styles)(ClassChild);
+export default withStyles(styles)(Container);
