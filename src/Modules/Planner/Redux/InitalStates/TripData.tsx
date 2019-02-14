@@ -1,5 +1,4 @@
-import Destination from '../Types/Destination';
-import TripAction from '../Types/Actions/TripData';
+import Destination from 'Modules/Planner/Types/Destination';
 
 const initialState = [
     {
@@ -89,49 +88,4 @@ const initialState = [
     } as Destination
 ];
 
-const reducer = (state = initialState, action: TripAction) => {
-    switch (action.type) {
-        case 'NEW_DESTINATION':
-            return [
-                ...state,
-                {
-                    name: action.data.location.name,
-                    price: action.data.location.price,
-                    currency: action.data.location.currency,
-                    date: {
-                        from: action.data.location.date.from,
-                        to: action.data.location.date.to,
-                        timezone: action.data.location.date.timezone
-                    },
-                    geo: {},//{...new Geographic(action.data.location.geo)},
-                    stay: {
-                        attractions: [],
-                        accommodation: [],
-                        travel: []
-                    },
-                    details: action.data.notes
-                }
-            ]
-        case 'NEW_ACTIVITY':
-            state[action.data.id].stay[action.type] = [
-                ...state[action.data.id].stay[action.type],
-                {
-                    name: action.data.location.name,
-                    price: action.data.location.price,
-                    currency: action.data.location.currency,
-                    date: {
-                        from: action.data.location.date.from,
-                        to: action.data.location.date.to,
-                        timezone: action.data.location.date.timezone
-                    },
-                    geo: {},//{...new Geographic(action.data.location.geo)},
-                    details: action.data.notes
-                }
-            ]
-            return state
-        default:
-            return state
-    }
-}
-  
-export default reducer
+export default initialState;

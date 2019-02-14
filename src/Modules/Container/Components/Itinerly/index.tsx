@@ -4,7 +4,9 @@ import { withStyles, createStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PaperLeft from 'Modules/Paper/Components/PaperLeft/';
 import PaperRight from 'Modules/Paper/Components/PaperRight/';
-
+/**
+ * Infomation about this component wooooooo
+ */
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     root: {
         flexGrow: 1,
@@ -74,5 +76,5 @@ class Itinerary extends React.Component<Props> {
         )
     }
 }
-
+/** @component */
 export default withStyles(styles, { withTheme: true })(Itinerary);

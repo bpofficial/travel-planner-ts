@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { withStyles, createStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Icon1 from '@material-ui/icons/Add';
@@ -9,11 +8,11 @@ import Icon2 from '@material-ui/icons/Settings';
 import Icon3 from '@material-ui/icons/SwapVert';
 import Icon4 from '@material-ui/icons/ZoomIn';
 
-import GoogleMap from 'modules/Map/Components/Container';
-import { New as NewActivity } from 'Components/Functional/Planner/Activity/New';
-//import Settings from '../../../containers/material_ui/containers/Settings/';
+import GoogleMap from 'Modules/Map/Components/Main/';
+import { New as NewActivity } from 'Modules/Planner/Components/Activity/';
+import Settings from 'Modules/Settings/Components/Main/';
 
-const styles = {
+const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     bottomInfoWrapper: {
         position: 'absolute',
         //margin: 'auto auto 0px auto',
@@ -32,7 +31,7 @@ const styles = {
         position: 'relative',
         outline: 'none!important'
     }
-};
+})
   
 const mapStateToProps = state => {
     return {
@@ -86,9 +85,5 @@ class PlannerNav extends Component<Props> {
         );
     }
 }
-
-PlannerNav.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
+/** @component */
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PlannerNav))

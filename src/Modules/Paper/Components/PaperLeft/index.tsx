@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const mapStateToProps = (state: {componentChange: Array<JSX.Element>}) => {
+const mapStateToProps = (state: { componentReducer: { bigComponent: any }}) => {
     return {
-        component: state.componentChange[0]['bigComponent']
+        component: state.componentReducer.bigComponent
     }
 }
 
@@ -20,5 +20,5 @@ class paperLeft extends React.Component<{className: string, component: JSX.Eleme
         )
     }
 }
-
+/** @component */
 export default connect(mapStateToProps)(paperLeft);

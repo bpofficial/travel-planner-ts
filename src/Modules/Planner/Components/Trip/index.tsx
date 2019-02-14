@@ -40,7 +40,6 @@ interface Props {
     icon: any,
     name: string,
     data: any,
-    item: string,
     classes: {
         root: string,
         details: string,
@@ -78,5 +77,5 @@ class TripClassContainer extends React.Component<Props> {
         )
     }
 }
-
+/** @component */
 export default withStyles(styles)(TripClassContainer);

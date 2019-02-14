@@ -1,15 +1,21 @@
-const webpack = require('webpack');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-
-function buildDevelopementConfig(env, dirname) {
-    console.log('Start build for NODE_ENV: ', env.NODE_ENV);
-    return {
+const path = require('path')
+const wpConfig = require('./config/webpack.development.config');
+const dirname = path.resolve(__dirname);
+module.exports = {
+    components: 'src/Modules/*/Components/*/[a-z]*.tsx',
+    assetsDir: 'styleguide/',
+    propsParser: require('react-docgen-typescript').parse,//.withCustomConfig('./tsconfig.json', [parserOptions]).parse,
+    /*
+    webpackConfig() {
+        return wpConfig({NODE_ENV:'development'}, path.resolve(__dirname), '/styleguide')
+    },*/
+    webpackConfig: {
         entry: dirname + '/src/index.tsx',
         devtool: 'cheap-module-eval-source-map',
         output: {
-            path: dirname + '/dist',
+            path: dirname + '/dist/styleguide',
             filename: 'index.js',
-            publicPath: '/dist/',
+            publicPath: '/dist/styleguide/',
             sourceMapFilename: 'bundle.map'
         },
         mode: 'development',
@@ -18,12 +24,6 @@ function buildDevelopementConfig(env, dirname) {
             alias: {
                 Modules: dirname + '/src/Modules'
             }
-        },
-        devServer: {
-            contentBase: dirname + '/src',
-            hotOnly: true,
-            overlay: true,
-            publicPath: '/dist/'
         },
         module: {
             rules: [
@@ -62,13 +62,21 @@ function buildDevelopementConfig(env, dirname) {
                     loaders: ['style-loader', 'css-loader']
                 }
             ]
+        }
+    },
+    sections: [
+        {
+            name: 'Intro',
+            content: 'docs/Intro.md'
         },
-        plugins: [
-            new FriendlyErrorsWebpackPlugin(),
-            new webpack.NamedModulesPlugin(),
-            new webpack.HotModuleReplacementPlugin()
-        ]
-    };
-}
+        {
+            name: 'Modules',
+            sections: [
+                {
+                    name: 'Container',
 
-module.exports = buildDevelopementConfig;
+                }
+            ]
+        }
+    ]
+}

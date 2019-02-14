@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import theme from '../../../../Themes';
-
+import theme from '../../../../Themes/';
+/**
+ * General component description in JSDoc format. Markdown is *supported*.
+ */
 const StyledButton = withStyles({
     root: {
         borderRadius: 2,
@@ -21,6 +23,7 @@ const StyledButton = withStyles({
     }
 })(Button);
 
+/** @component */
 export default class Budget extends React.Component<{ info: string }> {
     public render(): JSX.Element {
         return (

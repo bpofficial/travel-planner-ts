@@ -3,9 +3,9 @@ import { hot } from 'react-hot-loader';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from '../Redux/Reducers';
+import rootReducer from './Shared/Redux/rootReducer';
 
-import Containers from './Planner/Components';
+import Container from './Container/Components/Itinerly/';
 import { MuiThemeProvider } from '@material-ui/core';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,7 +20,7 @@ class App extends React.Component <{}> {
         return (
             <MuiThemeProvider theme={theme} >
                 <Provider store={store} >
-                    <Containers />
+                    <Container />
                 </Provider>
             </MuiThemeProvider>
         );

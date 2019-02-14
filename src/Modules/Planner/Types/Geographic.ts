@@ -1,16 +1,11 @@
-interface Geo {
-    lat?: number,
-    lng?: number,
-    place_id?: string,
-    address: string
-};
+import Geo from './Geographic';
 
-class Geographic {
+export default class Geographic {
 
-    private lat: number | undefined;
-    private lng: number | undefined;
-    private place_id: string;
-    private address: string;
+    public lat: number | undefined;
+    public lng: number | undefined;
+    public place_id: string;
+    public address: string;
 
     constructor( data: Geo ) {
         if ( typeof data.lat != undefined && data.lat && data.lng != undefined && data.lng ) {
@@ -27,9 +22,10 @@ class Geographic {
              * Pl
              */
         }
-
+    
         if ( typeof data.address != undefined && data.address) {
 
         }
+        
     }
 }

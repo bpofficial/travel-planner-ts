@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
-import Nav from 'Modules/Planner/Components/Nav/';
+import Nav from 'Modules/Navigation/Components/Planner';
 
-const mapStateToProps = (state: {componentChange: Array<JSX.Element>}) => {
+const mapStateToProps = (state: { componentReducer: { littleComponent: any }}) => {
+    console.log(state.componentReducer)
     return {
-        component: state.componentChange[0]['littleComponent']
+        component: state.componentReducer.littleComponent
     }
 }
 
@@ -20,5 +21,5 @@ class paperRight extends React.Component<{className: string, component: JSX.Elem
         )
     }
 }
-
+/** @component */
 export default connect(mapStateToProps)(paperRight);

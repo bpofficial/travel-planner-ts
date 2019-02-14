@@ -1,4 +1,4 @@
-import Geographic from './Geographic';
+import Geographic from './Geographic.d';
 
 type Destination = {
     name: string,
@@ -10,7 +10,7 @@ type Destination = {
         to?: Date | string,
         timezone?: string
     },
-    geo: Geographic,
+    geo?: Geographic,
     stay: {
         attractions?: {
             [key:number]: {
