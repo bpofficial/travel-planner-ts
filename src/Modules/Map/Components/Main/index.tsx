@@ -7,14 +7,24 @@ import {
 from 'google-maps-react';
 import Grid from '@material-ui/core/Grid';
 
-class MapContainer extends React.Component<{ google: any[] }> {
+interface Props {
+    google: any,
+    styles: {
+        width: string,
+        height: string,
+        borderRadius: string
+    }
+}
+
+class MapContainer extends React.Component<Props> {
     public render(): JSX.Element {
         const style = {
             map: {
-                minWidth: '55vw',
-                maxWidth: '55vw',
-                minHeight: '80vh', 
-                maxHeight: '80vh',
+                minWidth: this.props.styles.width || '55vw',
+                maxWidth: this.props.styles.width || '55vw',
+                minHeight: this.props.styles.height || '80vh', 
+                maxHeight: this.props.styles.height ||'80vh',
+                borderRadius: this.props.styles.borderRadius || '0px',
                 position: 'relative'
             },
             container: {

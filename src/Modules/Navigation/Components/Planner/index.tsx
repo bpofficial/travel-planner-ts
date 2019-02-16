@@ -9,8 +9,10 @@ import Icon3 from '@material-ui/icons/SwapVert';
 import Icon4 from '@material-ui/icons/ZoomIn';
 
 import GoogleMap from 'Modules/Map/Components/Main/';
-import { New as NewActivity } from 'Modules/Planner/Components/Activity/';
+import NewActivity from 'Modules/Forms/Components/Destination/New/';
 import Settings from 'Modules/Settings/Components/Main/';
+
+import theme from '../../../../Themes/'
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     bottomInfoWrapper: {
@@ -30,6 +32,9 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     bottomInfoIcon: {
         position: 'relative',
         outline: 'none!important'
+    },
+    icon: {
+        color: theme.palette.primary.main
     }
 })
   
@@ -54,7 +59,8 @@ interface Props {
     classes: {
         bottomInfoWrapper: string,
         bottomInfo: string,
-        bottomInfoIcon: string
+        bottomInfoIcon: string,
+        icon: string
     }
 }
 
@@ -76,10 +82,10 @@ class PlannerNav extends Component<Props> {
         return (
             <div className={classes.bottomInfoWrapper}>
                 <BottomNavigation onChange={this.handleChange} className={classes.bottomInfo} showLabels>
-                    <BottomNavigationAction label="New Activity" value="new" className={classes.bottomInfoIcon} icon={<Icon1 />} />
-                    <BottomNavigationAction label="Settings" value="settings" className={classes.bottomInfoIcon} icon={<Icon2 />} />
-                    <BottomNavigationAction label="Move" value="move" className={classes.bottomInfoIcon} icon={<Icon3 />} />
-                    <BottomNavigationAction label="Fullscreen" value="full" className={classes.bottomInfoIcon} icon={<Icon4 />} />
+                    <BottomNavigationAction label="New Activity" value="new" className={classes.bottomInfoIcon} icon={<Icon1 className={classes.icon} />} />
+                    <BottomNavigationAction label="Settings" value="settings" className={classes.bottomInfoIcon} icon={<Icon2 className={classes.icon} />} />
+                    <BottomNavigationAction label="Move" value="move" className={classes.bottomInfoIcon} icon={<Icon3 className={classes.icon} />} />
+                    <BottomNavigationAction label="Fullscreen" value="full" className={classes.bottomInfoIcon} icon={<Icon4 className={classes.icon} />} />
                 </BottomNavigation>
             </div>
         );

@@ -4,6 +4,7 @@ import { withStyles, createStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PaperLeft from 'Modules/Paper/Components/PaperLeft/';
 import PaperRight from 'Modules/Paper/Components/PaperRight/';
+import theme from '../../../../Themes/';
 /**
  * Infomation about this component wooooooo
  */
@@ -44,8 +45,8 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     titleOutline: {
         display: 'inline-block',
         borderStyle: 'dashed',
-        borderColor: 'grey',
-        borderRadius: '4px',
+        borderColor: theme.palette.primary.main,
+        borderRadius: '5px',
         paddingLeft: '5px',
         paddingRight: '5px'
     }

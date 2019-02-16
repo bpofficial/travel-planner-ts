@@ -2,7 +2,8 @@ import React from 'react';
 
 import { GoogleMap } from 'Modules/Map/';
 import { Planner } from 'Modules/Planner/';
-const componentReducer = (state = { bigComponent: <GoogleMap />, littleComponent: <Planner /> }, action) => {
+import New from 'Modules/Forms/Components/Destination/New/';
+const componentReducer = (state = { bigComponent: <New />, littleComponent: <Planner /> }, action) => {
     switch (action.type) {
         case 'CHANGE_BIG_COMPONENT':
             state.bigComponent = action.component
