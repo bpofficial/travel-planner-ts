@@ -1,4 +1,11 @@
 {
     "extends": ["tslint:recommended", "tslint-react"],
-    "rules": {}
+    "rules": {},
+    "linterOptions": {
+        "exclude": [
+            "node_modules",
+            "dist",
+            "config"
+        ]
+    }
 }
