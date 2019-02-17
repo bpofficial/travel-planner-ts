@@ -201,7 +201,7 @@ class New extends Component<Props, State> {
                         <div className={classes.content}>
                             <TextField
                                 className={classes.textField}
-                                id="standard-required"
+                                id="standard"
                                 label="How long are you staying/visiting?"
                                 defaultValue=""
                                 margin="normal"
@@ -213,7 +213,7 @@ class New extends Component<Props, State> {
                                 InputProps={{
                                     endAdornment: <InputAdornment position="end">days</InputAdornment>,
                                 }}
-                                required
+                                
                             />
                         </div>
                         <Divider variant="middle" style={{marginTop:'1%'}}/>
