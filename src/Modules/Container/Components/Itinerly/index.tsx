@@ -1,72 +1,74 @@
-import React from 'react';
-import { Typography } from '@material-ui/core';
-import { withStyles, createStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import PaperLeft from 'Modules/Paper/Components/PaperLeft/';
-import PaperRight from 'Modules/Paper/Components/PaperRight/';
-import theme from '../../../../Themes/';
+import React from "react";
+
+import { Typography } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import { createStyles, withStyles } from "@material-ui/core/styles";
+import PaperLeft from "Modules/Paper/Components/PaperLeft/";
+import PaperRight from "Modules/Paper/Components/PaperRight/";
+
+import theme from "../../../../Themes/";
 /**
  * Infomation about this component wooooooo
  */
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
-    root: {
-        flexGrow: 1,
-        paddingLeft: '5%',
-        paddingTop: '1%',
-        paddingRight: '5%',
-        position: 'relative'
-    },
     paperLeft: {
-        position: 'relative',
-        padding: '2vh',
-        margin: 'auto',
-        minWidth: '32vw',
-        maxWidth: '32vw',
-        width: '100%',
-        minHeight: '80vh',
-        maxHeight: '80vh',
-        height: '100%',
-        float: 'left',
-        borderRadius: '0px',
-        overflow: 'auto'
+        borderRadius: "0px",
+        float: "left",
+        height: "100%",
+        margin: "auto",
+        maxHeight: "80vh",
+        maxWidth: "32vw",
+        minHeight: "80vh",
+        minWidth: "32vw",
+        overflow: "auto",
+        padding: "2vh",
+        position: "relative",
+        width: "100%",
     },
     paperRight: {
-        margin: 'auto',
-        //padding: '2vh',
-        minWidth: '55vw',
-        maxWidth: '55vw',
-        minHeight: '80vh',
-        maxHeight: '80vh',
-        //width: '100%',
-        //height: '100%',
-        float: 'right',
-        borderRadius: '0px'
+        borderRadius: "0px",
+        float: "right",
+        // height: '100%',
+        margin: "auto",
+        maxHeight: "80vh",
+        maxWidth: "55vw",
+        minHeight: "80vh",
+        minWidth: "55vw",
+        // padding: '2vh',
+        // width: '100%',
+    },
+    root: {
+        flexGrow: 1,
+        paddingLeft: "5%",
+        paddingRight: "5%",
+        paddingTop: "1%",
+        position: "relative",
     },
     titleOutline: {
-        display: 'inline-block',
-        borderStyle: 'dashed',
         borderColor: theme.palette.primary.main,
-        borderRadius: '5px',
-        paddingLeft: '5px',
-        paddingRight: '5px'
-    }
+        borderRadius: "5px",
+        borderStyle: "dashed",
+        display: "inline-block",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+    },
 });
 
-type Props = {
+interface IProps {
     classes: {
         root: string,
         paperLeft: string,
         paperRight: string,
-        titleOutline: string
-    }
+        titleOutline: string,
+    };
 }
 
-class Itinerary extends React.Component<Props> { 
+class Itinerary extends React.Component<IProps> {
     public render(): JSX.Element {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
-                <Typography component="h2" variant="display3" gutterBottom>
+                <Typography component="h2" variant="display3" gutterBottom={true}>
                     <div className={classes.titleOutline}>Travel</div>&nbsp;Planner
                 </Typography>
                 <Grid>
@@ -74,7 +76,7 @@ class Itinerary extends React.Component<Props> {
                     <PaperRight className={classes.paperLeft} />
                 </Grid>
             </div>
-        )
+        );
     }
 }
 /** @component */

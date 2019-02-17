@@ -1,18 +1,17 @@
-import React from 'react';
-import { hot } from 'react-hot-loader';
+import React from "react";
+import { hot } from "react-hot-loader";
 
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from './Shared/Redux/rootReducer';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "./Shared/Redux/rootReducer";
 
-import Container from './Container/Components/Itinerly/';
-import { MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider } from "@material-ui/core";
+import Container from "./Container/Components/Itinerly/";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import theme from '../Themes';
+import "bootstrap/dist/css/bootstrap.min.css";
+import theme from "../Themes";
 
 const store = createStore(rootReducer);
-
 
 class App extends React.Component <{}> {
 
