@@ -18,7 +18,10 @@ function buildProductionConfig(env, dirname) {
         },
         mode: 'production',
         resolve: {
-            extensions: ['.js', '.json', '.ts', '.jsx', '.tsx']
+            extensions: ['.js', '.json', '.ts', '.jsx', '.tsx'],
+            alias: {
+                Modules: dirname + '/src/Modules'
+            }
         },
         module: {
             rules: [
