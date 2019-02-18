@@ -79,5 +79,5 @@ class TripClassContainer extends React.Component<IProps> {
         );
     }
 }
-/** @component */
+
 export default withStyles(styles)(TripClassContainer);

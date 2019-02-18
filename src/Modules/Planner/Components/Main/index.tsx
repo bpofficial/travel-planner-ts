@@ -121,5 +121,5 @@ class Planner extends React.Component<IProps, IState> {
         });
     }
 }
-/** @component */
+
 export default connect(mapStateToProps)(withStyles(styles)(Planner));

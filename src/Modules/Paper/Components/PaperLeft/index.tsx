@@ -20,5 +20,5 @@ class PaperLeft extends React.Component<{className: string, component: JSX.Eleme
         );
     }
 }
-/** @component */
+
 export default connect(mapStateToProps)(PaperLeft);

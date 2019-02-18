@@ -79,5 +79,5 @@ class Itinerary extends React.Component<IProps> {
         );
     }
 }
-/** @component */
+
 export default withStyles(styles, { withTheme: true })(Itinerary);

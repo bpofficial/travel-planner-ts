@@ -111,5 +111,5 @@ class PlannerNav extends Component<IProps> {
         );
     }
 }
-/** @component */
+
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PlannerNav));
