@@ -1,28 +1,27 @@
-import React from 'react'
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+import React from "react";
 
 const StyledButton = withStyles({
     root: {
         borderRadius: 2,
+        float: "right",
         height: 32,
+        margin: "auto 3.5vw auto auto",
         maxWidth: 50,
-        width: '100%',
-        padding: '0 30px',
-        float: 'right',
-        margin: 'auto 3.5vw auto auto'
-    }
+        padding: "0 30px",
+        width: "100%",
+    },
 })(Button);
-
 
 class AddButton extends React.Component<{ name: string }> {
 
-    render() {
+    public render() {
         return (
             <StyledButton variant="contained" color="primary">
                 +Add
             </StyledButton>
-        )
+        );
     }
 }
 

@@ -1,70 +1,76 @@
-import React from 'react';
+import React from "react";
 
-import { GoogleMap } from 'Modules/Map/';
-import { Planner } from 'Modules/Planner/';
-import New from 'Modules/Forms/Components/Destination/New/';
+import New from "Modules/Forms/Components/Destination/New/";
+// import { GoogleMap } from "Modules/Map/";
+import { Planner } from "Modules/Planner/";
+
 const componentReducer = (state = { bigComponent: <New />, littleComponent: <Planner /> }, action) => {
     switch (action.type) {
-        case 'CHANGE_BIG_COMPONENT':
-            state.bigComponent = action.component
+        case "CHANGE_BIG_COMPONENT":
+            state.bigComponent = action.component;
             return {
-                ...state
-            }
-        case 'CHANGE_LITTLE_COMPONENT':
-            state.littleComponent = action.component
+                ...state,
+            };
+        case "CHANGE_LITTLE_COMPONENT":
+            state.littleComponent = action.component;
             return {
-                ...state
-            }
+                ...state,
+            };
         default:
-            return state
+            return state;
     }
-}
+};
 
-import initialState from 'Modules/Planner/Redux/InitalStates/TripData';
-import TripAction from 'Modules/Planner/Types/Actions/TripData';
+import initialState from "Modules/Planner/Redux/InitalStates/TripData";
+import TripAction from "Modules/Planner/Types/Actions/TripData";
 const tripDetails = (state = initialState, action: TripAction) => {
     switch (action.type) {
-        case 'NEW_DESTINATION':
+        case "NEW_DESTINATION":
             return [
                 ...state,
                 {
-                    name: action.data.location.name,
-                    price: action.data.location.price,
                     currency: action.data.location.currency,
                     date: {
                         from: action.data.location.date.from,
+                        timezone: action.data.location.date.timezone,
                         to: action.data.location.date.to,
-                        timezone: action.data.location.date.timezone
                     },
-                    geo: {},//{...new Geographic(action.data.location.geo)},
+                    details: action.data.notes,
+                    geo: {}, // {...new Geographic(action.data.location.geo)},
+                    name: action.data.location.name,
+                    price: action.data.location.price,
                     stay: {
-                        attractions: [],
                         accommodation: [],
-                        travel: []
+                        attractions: [],
+                        travel: [],
                     },
-                    details: action.data.notes
-                }
-            ]
-        case 'NEW_ACTIVITY':
+                },
+            ];
+        case "NEW_ACTIVITY":
             state[action.data.id].stay[action.type] = [
                 ...state[action.data.id].stay[action.type],
                 {
-                    name: action.data.location.name,
-                    price: action.data.location.price,
                     currency: action.data.location.currency,
                     date: {
                         from: action.data.location.date.from,
+                        timezone: action.data.location.date.timezone,
                         to: action.data.location.date.to,
-                        timezone: action.data.location.date.timezone
                     },
-                    geo: {},//{...new Geographic(action.data.location.geo)},
-                    details: action.data.notes
-                }
-            ]
-            return state
+                    details: action.data.notes,
+                    geo: {}, // {...new Geographic(action.data.location.geo)},
+                    name: action.data.location.name,
+                    price: action.data.location.price,
+                    stay: {
+                        accommodation: [],
+                        attractions: [],
+                        travel: [],
+                    },
+                },
+            ];
+            return state;
         default:
-            return state
+            return state;
     }
-}
+};
 
-export { componentReducer, tripDetails } 
+export { componentReducer, tripDetails };

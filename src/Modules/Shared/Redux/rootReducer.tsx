@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import * as PlannerReducers from 'Modules/Planner/Redux/reducer';
+import * as PlannerReducers from "Modules/Planner/Redux/reducer";
 
 export default combineReducers({
-    ...PlannerReducers
-})
+    ...PlannerReducers,
+});

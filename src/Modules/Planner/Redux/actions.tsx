@@ -1,14 +1,14 @@
-export const changeLittleComponent = component => ({
-    type: 'CHANGE_LITTLE_COMPONENT',
-    component: component
-})
+export const changeLittleComponent = (component) => ({
+    component,
+    type: "CHANGE_LITTLE_COMPONENT",
+});
 
-export const changeBigComponent = component => ({
-    type: 'CHANGE_BIG_COMPONENT',
-    component: component
-})
+export const changeBigComponent = (component) => ({
+    component,
+    type: "CHANGE_BIG_COMPONENT",
+});
 
 export const newTripComponent = (item: string) => ({
-    type: 'NEW_TRIP_COMPONENT',
-    name: item
-})
+    name: item,
+    type: "NEW_TRIP_COMPONENT",
+});

@@ -1,26 +1,26 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
-import theme from '../../../../Themes/';
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+import React from "react";
+import theme from "../../../../Themes/";
 /**
  * General component description in JSDoc format. Markdown is *supported*.
  */
 const StyledButton = withStyles({
+    outlinedPrimary: {
+        border: "1px solid " + theme.palette.primary.main,
+        color: "#757575",
+    },
     root: {
         borderRadius: 2,
+        cursor: "not-allowed",
+        float: "right",
         height: 48,
-        //maxWidth: '5vw',
-        //width: '100%',
-        padding: '0 30px',
-        float: 'right',
-        margin: 'auto 4vw auto auto',
-        pointerEvents: 'none',
-        cursor: 'not-allowed'
+        // maxWidth: '5vw',
+        margin: "auto 4vw auto auto",
+        padding: "0 30px",
+        pointerEvents: "none",
+        // width: '100%',
     },
-    outlinedPrimary: {
-        border: '1px solid '+ theme.palette.primary.main,
-        color: '#757575'
-    }
 })(Button);
 
 /** @component */
@@ -30,6 +30,6 @@ export default class Budget extends React.Component<{ info: string }> {
             <StyledButton variant="outlined" color="primary">
                 ${this.props.info}
             </StyledButton>
-        )
+        );
     }
 }

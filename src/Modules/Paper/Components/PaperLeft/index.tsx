@@ -1,24 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
+import React from "react";
+import { connect } from "react-redux";
 
 const mapStateToProps = (state: { componentReducer: { bigComponent: any }}) => {
     return {
-        component: state.componentReducer.bigComponent
-    }
-}
+        component: state.componentReducer.bigComponent,
+    };
+};
 
-class paperLeft extends React.Component<{className: string, component: JSX.ElementClass}> {
-    render() {
+class PaperLeft extends React.Component<{className: string, component: JSX.ElementClass}> {
+    public render() {
         return (
             <Paper className={this.props.className}>
-                <Grid container spacing={0} style={{ height: '80vh' }}>
+                <Grid container={true} spacing={0} style={{ height: "80vh" }}>
                     {this.props.component}
                 </Grid>
             </Paper>
-        )
+        );
     }
 }
 /** @component */
-export default connect(mapStateToProps)(paperLeft);
+export default connect(mapStateToProps)(PaperLeft);
