@@ -39,6 +39,7 @@
         "html-minifier": "^3.5.21",
         "jest": "^24.1.0",
         "nodemon": "^1.18.10",
+        "prettier": "^1.16.4",
         "react-docgen-typescript-webpack-plugin": "^1.1.0",
         "react-hot-loader": "^4.6.5",
         "redux-devtools": "^3.5.0",
