@@ -64,12 +64,15 @@ class Planner extends React.Component<IProps, IState> {
         const { classes } = this.props;
         return (
             <Grid container={true} spacing={0} style={{ justifyContent: "center"}}>
+                {/* tslint:disable-next-line: jsx-no-multiline-js*/}
                 {this.props.data.map((location, i) => {
                     return (
                         <ExpansionPanel
                             key={i}
                             className={classes.root}
+                            // tslint:disable-next-line: jsx-no-lambda
                             onMouseOver={() => {this.onMouseOver(i); }}
+                            // tslint:disable-next-line: jsx-no-lambda
                             onMouseOut={() => {this.onMouseOut(); }}
                             elevation={this.state.elevation[i]}
                             square={true}
