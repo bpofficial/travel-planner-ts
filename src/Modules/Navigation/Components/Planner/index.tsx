@@ -101,7 +101,7 @@ class PlannerNav extends Component<IProps> {
                         icon={<Icon3 className={classes.icon} />}
                     />
                     <BottomNavigationAction
-                        label="Fullscreen"
+                        label="Map"
                         value="full"
                         className={classes.bottomInfoIcon}
                         icon={<Icon4 className={classes.icon} />}
