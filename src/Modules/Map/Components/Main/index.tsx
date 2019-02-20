@@ -20,11 +20,14 @@ class MapContainer extends React.Component<IProps> {
                 position: "relative",
             },
             map: {
-                borderRadius: this.props.styles.borderRadius || "0px",
-                maxHeight: this.props.styles.height || "80vh",
-                maxWidth: this.props.styles.width || "55vw",
-                minHeight: this.props.styles.height || "80vh",
-                minWidth: this.props.styles.width || "55vw",
+                // optional chaining not supported by linter
+                // tslint:disable
+                borderRadius: this.props.styles?.borderRadius || "0px",
+                maxHeight: this.props.styles?.height || "80vh",
+                maxWidth: this.props.styles?.width || "55vw",
+                minHeight: this.props.styles?.height || "80vh",
+                minWidth: this.props.styles?.width || "55vw",
+                // tslint:enable
                 position: "relative",
             },
         };
@@ -41,7 +44,6 @@ class MapContainer extends React.Component<IProps> {
         );
     }
 }
-
 
 export default GoogleApiWrapper({
     apiKey: "AIzaSyCevzJfMGttcDCL-_pGFI8PN4pOiYK2Fxc",
