@@ -50,7 +50,7 @@ export class Container extends React.Component<IProps> {
                     <EditButton />
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    {info.details}
+                    {info.details || " "}
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
