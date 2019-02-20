@@ -23,7 +23,6 @@ const StyledButton = withStyles({
     },
 })(Button);
 
-
 export default class Budget extends React.Component<{ info: string }> {
     public render(): JSX.Element {
         return (
