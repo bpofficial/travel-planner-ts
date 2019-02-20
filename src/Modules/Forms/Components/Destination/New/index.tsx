@@ -44,6 +44,7 @@ const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
         borderRadius: "4px",
         borderStyle: "dashed",
         display: "inline-block",
+        height: "10%",
         paddingLeft: "5px",
         paddingRight: "5px",
     },
@@ -88,66 +89,17 @@ class New extends Component<IProps, IState> {
         };
     }
 
-    public handleChange = (event) => {
-        this.setState({
-            ...this.state,
-            class: event.target.value,
-        });
-    }
-
-    public budgetChange = (event) => {
-        if (isNaN(event.target.value) || Number(event.target.value) < 0 ) {
-            this.setState({
-                ...this.state,
-                budget: {
-                    error: true,
-                    helper: "Requires a positive number",
-                },
-            });
-        } else {
-            this.setState({
-                ...this.state,
-                budget: {
-                    error: false,
-                    helper: "",
-                },
-            });
-        }
-    }
-
-    public stayChange = (event) => {
-        if (isNaN(event.target.value) || Number(event.target.value) < 0 ) {
-            this.setState({
-                ...this.state,
-                stay: {
-                    error: true,
-                    helper: "Requires a positive number",
-                },
-            });
-        } else {
-            this.setState({
-                ...this.state,
-                stay: {
-                    error: false,
-                    helper: "",
-                },
-            });
-        }
-    }
-
     public render() {
 
         const { classes } = this.props;
 
         return (
             <Grid container={true} className={classes.container}>
-                <Grid item={true} className={classes.titleGrid}>
+                <Grid container={true} style={{height: "100%"}}>
                     <Typography component="h4" variant="display1">
                         <div className={classes.titleOutline}>Create</div>&nbsp;New Activity
                     </Typography>
                     <Divider variant="middle" style={{marginTop: "1%"}}/>
-                </Grid>
-                <Grid container={true} style={{height: "20%", marginTop: "-30%"}}>
                     <Grid item={true} lg={12} >
                         <FormControl required={true} variant="outlined" style={{width: "100%", paddingBottom: "1%"}}>
                             <InputLabel htmlFor="outlined-age-simple">
@@ -213,14 +165,65 @@ class New extends Component<IProps, IState> {
                                 InputProps={{endAdornment: <InputAdornment position="end">days</InputAdornment>}}
                             />
                         </div>
-                        <Divider variant="middle" style={{marginTop: "1%"}}/>
+                        <Divider variant="middle"/>
                     </Grid>
-                    <Grid item={true} lg={12} style={{paddingTop: "2%", height: "100%"}}>
+                    <Grid
+                        item={true}
+                        lg={12}
+                        style={{paddingTop: "2%", height: "30%", width: "50%"}}
+                    >
                         <GoogleMap styles={{width: "100%", height: "100%", borderRadius: "5px"}}/>
                     </Grid>
                 </Grid>
             </Grid>
         );
+    }
+
+    private handleChange = (event) => {
+        this.setState({
+            ...this.state,
+            class: event.target.value,
+        });
+    }
+
+    private budgetChange = (event) => {
+        if (isNaN(event.target.value) || Number(event.target.value) < 0 ) {
+            this.setState({
+                ...this.state,
+                budget: {
+                    error: true,
+                    helper: "Requires a positive number",
+                },
+            });
+        } else {
+            this.setState({
+                ...this.state,
+                budget: {
+                    error: false,
+                    helper: "",
+                },
+            });
+        }
+    }
+
+    private stayChange = (event) => {
+        if (isNaN(event.target.value) || Number(event.target.value) < 0 ) {
+            this.setState({
+                ...this.state,
+                stay: {
+                    error: true,
+                    helper: "Requires a positive number",
+                },
+            });
+        } else {
+            this.setState({
+                ...this.state,
+                stay: {
+                    error: false,
+                    helper: "",
+                },
+            });
+        }
     }
 }
 
