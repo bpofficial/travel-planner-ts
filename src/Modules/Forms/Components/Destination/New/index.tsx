@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import Grid from "@material-ui/core/Grid";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -14,6 +15,20 @@ import GoogleMap from "../../../../Map/Components/Main/";
 import Accommodation from "../Accommodation/";
 import Attraction from "../Attraction/";
 import Travel from "../Travel/";
+
+const SubmitButton = withStyles({
+    outlinedPrimary: {
+        border: "3px dashed " + theme.palette.primary.main,
+        color: "#757575",
+    },
+    root: {
+        borderRadius: "4px",
+        float: "right",
+        height: 48,
+        margin: "auto",
+        padding: "0 30px",
+    },
+})(Button);
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     container: {
@@ -83,9 +98,14 @@ class New extends Component<IProps, IState> {
 
         return (
             <Grid container={true} className={classes.container} >
-                <Typography component="h4" variant="display1" style={{height: "10%"}}>
-                    <div className={classes.titleOutline}>Create</div>&nbsp;New Activity
-                </Typography>
+                <Grid item={true} spacing={0} lg={12}>
+                    <Typography component="h4" variant="display1" style={{height: "10%", width: "100%"}}>
+                        <div className={classes.titleOutline}>Create</div>&nbsp;New Activity
+                        <SubmitButton variant="outlined" color="primary">
+                            Submit
+                        </SubmitButton>
+                    </Typography>
+                </Grid>
                 <Grid item={true} lg={12} sm={12} md={12} style={{alignContent: "flex-start", height: "68px"}}>
                     <FormControl
                         required={true}
