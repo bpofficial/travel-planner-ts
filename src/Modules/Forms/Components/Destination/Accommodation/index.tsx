@@ -4,7 +4,6 @@ import { createStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import React, { Component } from "react";
 import theme from "../../../../../Themes/";
-import GoogleMap from "../../../../Map/Components/Main/";
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     container: {
@@ -113,7 +112,7 @@ export class Attraction extends Component<IProps, IState> {
                             onChange={this.budgetChange}
                             error={this.state.budget.error}
                             helperText={this.state.budget.helper}
-                            InputProps={{endAdornment: <InputAdornment position="end">AUD</InputAdornment>}}
+                            InputProps={{endAdornment: <InputAdornment position="end">AUD/pp</InputAdornment>}}
                             required={true}
                         />
                     </Grid>
