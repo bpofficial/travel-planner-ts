@@ -4,7 +4,6 @@ import { createStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import React, { Component } from "react";
 import theme from "../../../../../Themes/";
-import GoogleMap from "../../../../Map/Components/Main/";
 
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     container: {
