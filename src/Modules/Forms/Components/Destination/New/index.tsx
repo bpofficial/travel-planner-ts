@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
@@ -15,6 +16,29 @@ import GoogleMap from "../../../../Map/Components/Main/";
 import Accommodation from "../Accommodation/";
 import Attraction from "../Attraction/";
 import Travel from "../Travel/";
+
+const mapStateToProps = (state) => {
+    return {
+        currentMapFocus: state.formMap.focus,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        editing: (bool) => {
+            dispatch({
+                type: "EDITING",
+                val: bool,
+            });
+        },
+        mapClick: (data: any) => {
+            dispatch({
+                event: data,
+                type: "MAP_CLICK",
+            });
+        },
+    };
+};
 
 const SubmitButton = withStyles({
     outlinedPrimary: {
@@ -75,21 +99,31 @@ interface IProps {
         content: string,
         textField: string,
     };
+    currentMapFocus: {
+        description: string;
+        lat: number;
+        lng: number;
+    };
+    mapClick: any;
+    editing: any;
 }
 
 interface IState {
     class: string;
-    child?: JSX.ElementClass | JSX.Element;
+    child: any;
 }
 
 class New extends Component<IProps, IState> {
 
+    public google = {};
+
     constructor(props) {
         super(props);
         this.state = {
-            child: <Attraction />,
-            class: "attractions",
+            child: <div />,
+            class: "",
         };
+        this.props.editing(true);
     }
 
     public render() {
@@ -98,7 +132,7 @@ class New extends Component<IProps, IState> {
 
         return (
             <Grid container={true} className={classes.container} >
-                <Grid item={true} spacing={0} lg={12}>
+                <Grid item={true} lg={12}>
                     <Typography component="h4" variant="display1" style={{height: "10%", width: "100%"}}>
                         <div className={classes.titleOutline}>Create</div>&nbsp;New Activity
                         <SubmitButton variant="outlined" color="primary">
@@ -133,23 +167,38 @@ class New extends Component<IProps, IState> {
                     lg={12}
                     style={{height: "52%", paddingTop: "2%"}}
                 >
-                    <GoogleMap styles={{width: "100%", height: "100%", borderRadius: "5px"}}/>
+                    <GoogleMap
+                        receiveGoogle={this.handleGoogle}
+                        markers={[this.props.currentMapFocus]}
+                        mapClick={this.props.mapClick}
+                        styles={{width: "100%", height: "100%", borderRadius: "5px"}}
+                    />
                 </Grid>
             </Grid>
         );
+    }
+
+    public shouldComponentUpdate(nextProps, nextState): any {
+        if (nextProps !== this.props || nextState !== this.state) {
+            return true;
+        }
+    }
+
+    private handleGoogle = (p) => {
+        this.google = p || {};
     }
 
     private handleChange = (event) => {
         this.setState({
             ...this.state,
             child: (event.target.value === "attractions") ?
-                <Attraction /> : (event.target.value === "accommodation") ?
-                <Accommodation /> : (event.target.value === "travel") ?
-                <Travel /> : undefined,
+                <Attraction maps={this.google} /> : (event.target.value === "accommodation") ?
+                <Accommodation maps={this.google} /> : (event.target.value === "travel") ?
+                <Travel maps={this.google} /> : undefined,
             class: event.target.value,
         });
     }
 
 }
 
-export default withStyles(styles, { withTheme: true })(New);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(New));
