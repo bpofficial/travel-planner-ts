@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
     return {
         mapClick: state.formMap.click,
     };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
