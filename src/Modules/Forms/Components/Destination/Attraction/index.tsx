@@ -122,10 +122,6 @@ export class Attraction extends Component<IProps, IState> {
                 style={{width: "100%"}}
                 id="standard-required"
                 label="Where is it?"
-<<<<<<< HEAD
-=======
-                defaultValue=""
->>>>>>> e92e906d1cd1eceb0fd7fccae2ec85098cd420a3
                 margin="normal"
                 variant="outlined"
                 InputProps={{endAdornment: <InputAdornment position="end">Search</InputAdornment>}}
@@ -193,16 +189,9 @@ export class Attraction extends Component<IProps, IState> {
     }
 
     private onSuggestionSelected = (event) => {
-<<<<<<< HEAD
         reverseGeo(event, this.props.maps, true);
     }
 
-=======
-        reverseGeo(event);
-    }
-
-
->>>>>>> e92e906d1cd1eceb0fd7fccae2ec85098cd420a3
     private budgetChange = (event) => {
         if (isNaN(event.target.value) || Number(event.target.value) < 0 ) {
             this.setState({
