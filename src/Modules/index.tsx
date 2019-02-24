@@ -11,7 +11,7 @@ import Container from "./Container/Components/Itinerly/";
 import "bootstrap/dist/css/bootstrap.min.css";
 import theme from "../Themes";
 
-const store = createStore(rootReducer);
+export const store = createStore(rootReducer);
 
 class App extends React.Component <{}> {
 
