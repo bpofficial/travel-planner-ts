@@ -71,7 +71,7 @@ class PlannerNav extends Component<IProps> {
             this.props.changeBigComponent(<NewActivity />);
         } else if ( value === "settings" ) {
             this.props.changeBigComponent(<Settings />);
-        } else if ( value === "full" ) {
+        } else if ( value === "map" ) {
             this.props.changeBigComponent(<GoogleMap />);
         }
     }
@@ -95,14 +95,14 @@ class PlannerNav extends Component<IProps> {
                         icon={<Icon2 className={classes.icon} />}
                     />
                     <BottomNavigationAction
-                        label="Move"
-                        value="move"
+                        label="Calendar"
+                        value="calendar"
                         className={classes.bottomInfoIcon}
                         icon={<Icon3 className={classes.icon} />}
                     />
                     <BottomNavigationAction
                         label="Map"
-                        value="full"
+                        value="map"
                         className={classes.bottomInfoIcon}
                         icon={<Icon4 className={classes.icon} />}
                     />
