@@ -1,10 +1,35 @@
+
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import Grid from "@material-ui/core/Grid";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { createStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import React, { Component } from "react";
 import theme from "../../../../../Themes/";
 
+import AutoCompleteWrapper from "mui-places-autocomplete";
+
+import { reverseGeo } from "Modules/Shared/Geo/";
+
+const mapStateToProps = (state) => {
+    return {
+        mapClick: state.formMap.click,
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        newMarker: (geometry) => {
+            dispatch({
+                data: geometry,
+                type: "NEW_MARKER",
+            });
+        },
+    };
+};
+
+// tslint:disable: no-console
 const styles = (/*{ palette, spacing }: Theme*/) => createStyles({
     container: {
         alignContent: "flex-start",
@@ -50,6 +75,8 @@ interface IProps {
         content: string,
         textField: string,
     };
+    maps: any;
+    newMarker: any;
 }
 
 interface IState {
@@ -80,9 +107,27 @@ export class Attraction extends Component<IProps, IState> {
         };
     }
 
+    public shouldComponentUpdate(nextProps, nextState): any {
+        if (nextProps !== this.props || nextState !== this.state) {
+            return true;
+        }
+    }
+
     public render() {
 
         const { classes } = this.props;
+        const searchBar = (
+            <TextField
+                className={classes.textField}
+                style={{width: "100%"}}
+                id="standard-required"
+                label="Where is it?"
+                margin="normal"
+                variant="outlined"
+                InputProps={{endAdornment: <InputAdornment position="end">Search</InputAdornment>}}
+                required={true}
+            />
+        );
 
         return (
             <div style={{width: "100%"}}>
@@ -112,7 +157,7 @@ export class Attraction extends Component<IProps, IState> {
                             onChange={this.budgetChange}
                             error={this.state.budget.error}
                             helperText={this.state.budget.helper}
-                            InputProps={{endAdornment: <InputAdornment position="end">AUD</InputAdornment>}}
+                            InputProps={{endAdornment: <InputAdornment position="end">AUD/pp</InputAdornment>}}
                             required={true}
                         />
                     </Grid>
@@ -132,21 +177,19 @@ export class Attraction extends Component<IProps, IState> {
                         />
                     </Grid>
                 </Grid>
-                <Grid item={true} lg={12} className={classes.content} style={{width: "100%"}}>
-                    <TextField
-                        className={classes.textField}
-                        style={{width: "100%"}}
-                        id="standard-required"
-                        label="Where is it?"
-                        defaultValue=""
-                        margin="normal"
-                        variant="outlined"
-                        InputProps={{endAdornment: <InputAdornment position="end">Search</InputAdornment>}}
-                        required={true}
-                    />
-                </Grid>
+                <AutoCompleteWrapper
+                    onSuggestionSelected={this.onSuggestionSelected}
+                    textFieldProps={searchBar.props}
+                    places={this.props.maps.places}
+                    // tslint:disable-next-line: jsx-no-lambda no-unused-expression
+                    renderTarget={() => { searchBar; }}
+                />
             </div>
         );
+    }
+
+    private onSuggestionSelected = (event) => {
+        reverseGeo(event, this.props.maps, true);
     }
 
     private budgetChange = (event) => {
@@ -190,4 +233,4 @@ export class Attraction extends Component<IProps, IState> {
     }
 }
 
-export default withStyles(styles, { withTheme: true })(Attraction);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(Attraction));
