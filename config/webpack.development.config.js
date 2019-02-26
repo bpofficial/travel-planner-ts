@@ -23,7 +23,10 @@ function buildDevelopementConfig(env, dirname) {
             contentBase: dirname + '/src',
             hotOnly: true,
             overlay: true,
-            publicPath: '/dist/'
+            publicPath: '/dist/',
+            host: '0.0.0.0',
+            public: '0.0.0.0',
+            disableHostCheck: true,
         },
         module: {
             rules: [
