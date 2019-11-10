@@ -140,7 +140,6 @@ export class Attraction extends Component<IProps, IState> {
                         defaultValue=""
                         margin="normal"
                         variant="outlined"
-                        InputProps={{endAdornment: <InputAdornment position="end">&nbsp;</InputAdornment>}}
                         required={true}
                     />
                 </Grid>
